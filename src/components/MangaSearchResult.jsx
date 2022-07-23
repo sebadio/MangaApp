@@ -13,7 +13,13 @@ export const MangaSearchResult = ({ attr, populate }) => {
         src={cover}
         alt={`${title} cover`}
       />
-      <a onClick={populate} mangaid={attr} href={`#${title}`}>
+      <a
+        onClick={populate}
+        id={id}
+        cover={cover}
+        title={title}
+        href={`#${title}`}
+      >
         {title}
       </a>
     </div>
