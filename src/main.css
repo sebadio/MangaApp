@@ -2,18 +2,31 @@
   font-family: Arial, Helvetica, sans-serif;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+  background: none;
+  width: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.39);
+  border-radius: 9px;
 }
 
 body {
   background-color: #1a1b26;
 }
+
 h1 {
   color: white;
 }
 
 input {
   all: unset;
-  padding: 1rem 2rem;
+  width: 95%;
+  padding: 0.5rem;
   background: none;
   color: white;
   font-size: 1.5rem;
@@ -22,7 +35,20 @@ input {
 }
 
 .AppContainer {
-  margin: 2rem;
+  display: flex;
+  height: 95vh;
+  margin: 1rem;
+}
+
+.leftSide {
+  flex: 30%;
+  max-height: 100%;
+  overflow: auto;
+  height: 100%;
+}
+
+.rightSide {
+  flex: 70%;
 }
 
 .loading {
@@ -77,6 +103,12 @@ input {
   gap: 1rem;
 }
 
+.MangaSearchResult a {
+  color: whitesmoke;
+  text-decoration: none;
+}
+
 .MangaSearchResult img {
   height: 100%;
+  border-radius: 5px;
 }

@@ -1,6 +1,6 @@
 import React, { createElement, useState } from "react";
 
-export const MangaSearchResult = ({ attr }) => {
+export const MangaSearchResult = ({ attr, populate }) => {
   const { cover, title, id, attributes } = attr;
   const [isLoaded, setIsLoaded] = useState(false);
   return (
@@ -13,7 +13,9 @@ export const MangaSearchResult = ({ attr }) => {
         src={cover}
         alt={`${title} cover`}
       />
-      <h4>{title}</h4>
+      <a onClick={populate} mangaid={attr} href={`#${title}`}>
+        {title}
+      </a>
     </div>
   );
 };

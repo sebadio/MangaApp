@@ -8,11 +8,20 @@ export const App = () => {
     setMangas(mangaSearch);
   };
 
+  const populateRightSide = (e) => {
+    const { mangaid, cover } = e.target;
+    console.log(e);
+  };
+
   return (
-    <div className="AppContainer">
-      <h1>Manga App</h1>
-      <MangaSearch onNewMangaSearch={onNewMangaSearch} />
-      <MangaItem key={mangas} manga={mangas} />;
-    </div>
+    <>
+      <div className="AppContainer">
+        <div className="leftSide">
+          <MangaSearch onNewMangaSearch={onNewMangaSearch} />
+          <MangaItem key={mangas} populate={populateRightSide} manga={mangas} />
+        </div>
+        <div className="rightSide"></div>
+      </div>
+    </>
   );
 };
