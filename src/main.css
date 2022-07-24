@@ -27,6 +27,12 @@ h2 {
   color: orangered;
 }
 
+h3 {
+  color: white;
+  width: 100%;
+  text-align: center;
+}
+
 input {
   all: unset;
   width: 90%;
@@ -54,6 +60,8 @@ input {
 .rightSide {
   flex: 70%;
   padding: 1rem;
+  height: 100%;
+  overflow: auto;
 }
 
 .mangaHeader {
@@ -144,12 +152,33 @@ form {
 }
 
 .volumen {
-  margin: 1rem;
+  margin: 1rem 0;
   color: wheat;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.chapter {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  font-size: 1.2rem;
+  border: 2px solid rgba(0, 0, 0, 0.39);
+  border-radius: 8px;
+  padding: 0.5rem;
+}
+
+.chapter p {
+  font-weight: 700;
 }
 
 .linkToChapter {
+  display: flex;
+  justify-content: space-between;
   color: white;
   text-decoration: none;
   font-size: 1.2rem;
+  width: 100%;
 }
