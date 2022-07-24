@@ -1,17 +1,20 @@
 import React, { useState } from "react";
+import { CurrentManga } from "./components/CurrentManga";
 import { MangaItem } from "./components/MangaItem";
 import { MangaSearch } from "./components/MangaSearch";
 export const App = () => {
   const [mangas, setMangas] = useState(["One Piece"]);
-  const [selectedManga, setSelectedManga] = useState({});
+  const [selectedManga, setSelectedManga] = useState(<></>);
 
   const onNewMangaSearch = (mangaSearch) => {
     setMangas(mangaSearch);
   };
 
   const populateRightSide = (e) => {
-    let { cover, id, href, title } = e.target.attributes;
-    return cover, id, href, title;
+    const { cover, id, href, title } = e.target.attributes;
+    setSelectedManga(
+      <CurrentManga cover={cover.value} id={id.value} title={title.value} />
+    );
   };
 
   return (
@@ -21,7 +24,7 @@ export const App = () => {
           <MangaSearch onNewMangaSearch={onNewMangaSearch} />
           <MangaItem key={mangas} populate={populateRightSide} manga={mangas} />
         </div>
-        <div className="rightSide"></div>
+        <div className="rightSide">{selectedManga}</div>
       </div>
     </>
   );
