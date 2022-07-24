@@ -11,7 +11,7 @@ export const CurrentManga = ({ cover, title, id }) => {
 
   useEffect(() => {
     populateChapterList(id);
-  }, []);
+  }, [volumes]);
 
   return (
     <>
