@@ -21,9 +21,12 @@ export const CurrentManga = ({ cover, title, id }) => {
       </div>
 
       <div className="chapterList">
-        {volumes.map((volume) => {
-          <Volume key={volume.volume} volume={volume} />;
-        })}
+        {volumes.map((volumen) => (
+          <div key={volumen.volume}>
+            <h2>Volumen: {volumen.volume}</h2>
+            <Volume volumen={volumen} />
+          </div>
+        ))}
       </div>
     </>
   );

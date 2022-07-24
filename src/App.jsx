@@ -3,7 +3,7 @@ import { CurrentManga } from "./components/CurrentManga";
 import { MangaItem } from "./components/MangaItem";
 import { MangaSearch } from "./components/MangaSearch";
 export const App = () => {
-  const [mangas, setMangas] = useState(["One Piece"]);
+  const [mangas, setMangas] = useState(["Tensura"]);
   const [selectedManga, setSelectedManga] = useState(<></>);
 
   const onNewMangaSearch = (mangaSearch) => {
