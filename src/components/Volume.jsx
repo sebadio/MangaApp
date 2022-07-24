@@ -9,7 +9,9 @@ export const Volume = ({ volumen }) => {
     <div className={`volumen`}>
       {capitulos.map((capitulo) => (
         <div key={capitulo.chapter} className="chapter">
-          <p>Chapter: {capitulo.chapter}</p>
+          <a href={`#chapter${capitulo.chapter}`} className="linkToChapter">
+            Chapter: {capitulo.chapter}
+          </a>
         </div>
       ))}
     </div>
