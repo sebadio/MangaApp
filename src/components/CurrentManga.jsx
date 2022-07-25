@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { getChapterList } from "../helpers/getChapterList";
 import { Volume } from "./Volume";
 
-export const CurrentManga = ({ cover, title, id }) => {
+export const CurrentManga = ({ cover, title, id, readChapter }) => {
   const [volumes, setVolumes] = useState([]);
 
   const populateChapterList = async (id) => {
@@ -24,7 +24,7 @@ export const CurrentManga = ({ cover, title, id }) => {
         {volumes.map((volumen) => (
           <div key={volumen.volume}>
             <h2>Volumen: {volumen.volume}</h2>
-            <Volume volumen={volumen} />
+            <Volume readChapter={readChapter} volumen={volumen} />
           </div>
         ))}
       </div>

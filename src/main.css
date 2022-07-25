@@ -182,3 +182,33 @@ form {
   font-size: 1.2rem;
   width: 100%;
 }
+
+.mangaReaderButton {
+  all: unset;
+  position: sticky;
+  top: 0;
+  left: 0;
+  color: white;
+  aspect-ratio: 1/1;
+  background-color: rgba(0, 0, 0, 0.69);
+  padding: 0.5rem;
+  border-radius: 50%;
+  width: 1rem;
+  height: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mangaPagesContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1px;
+  width: 100%;
+}
+
+.mangaPagesContainer img {
+  max-width: 100%;
+}

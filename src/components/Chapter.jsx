@@ -14,10 +14,10 @@ export const Chapter = ({ id }) => {
 
   return (
     <>
-      <span>
+      <span id={id}>
         {chapter.chapter}: {chapter.title}{" "}
       </span>
-      <sup>{chapter.pages} pages</sup>
+      <sup id={id}>{chapter.pages} pages</sup>
     </>
   );
 };
