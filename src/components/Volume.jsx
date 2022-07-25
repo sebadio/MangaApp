@@ -4,7 +4,7 @@ import { Chapter } from "./Chapter";
 export const Volume = ({ volumen, readChapter }) => {
   const { volume, chapters } = volumen;
 
-  const capitulos = Object.values(chapters);
+  const capitulos = Object.values(chapters).reverse();
 
   return (
     <div className={`volumen`}>

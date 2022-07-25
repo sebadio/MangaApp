@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { CurrentManga } from "./components/CurrentManga";
 import { MangaItem } from "./components/MangaItem";
 import { MangaSearch } from "./components/MangaSearch";
 import { getChapterPages } from "./helpers/getChapterPages";
+import { usePrevious } from "./hooks/usePrevious";
+
 export const App = () => {
   const [mangas, setMangas] = useState(["Tensura"]);
   const [selectedManga, setSelectedManga] = useState(<></>);
@@ -11,7 +13,18 @@ export const App = () => {
     setMangas(mangaSearch);
   };
 
+  const previousState = usePrevious(selectedManga);
+
+  console.log("Next to definition " + previousState);
+
+  const exitManga = (state) => {
+    console.log("Inside exitManga function " + state);
+    setSelectedManga(state);
+  };
+
   const readChapter = async (e) => {
+    console.log("Inside readChapter function " + previousState);
+
     const id = e.target.id;
 
     const { baseUrl, chapter } = await getChapterPages(id);
@@ -23,7 +36,8 @@ export const App = () => {
         <button
           className="mangaReaderButton"
           onClick={() => {
-            "exit";
+            console.log("Onclick " + previousState);
+            exitManga(previousState);
           }}
         >
           X
@@ -38,13 +52,14 @@ export const App = () => {
   };
 
   const populateRightSide = (e) => {
-    const { cover, id, href, title } = e.target.attributes;
+    const { cover, id, href, title, description } = e.target.attributes;
     setSelectedManga(
       <CurrentManga
         readChapter={readChapter}
         cover={cover.value}
         id={id.value}
         title={title.value}
+        description={description.value}
       />
     );
   };

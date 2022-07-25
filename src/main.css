@@ -1,3 +1,12 @@
+:root {
+  --text-color: whitesmoke;
+
+  --primary-body: #0e0b0b;
+  --primary-clr: #3a4e48;
+  --secondary-clr: #6a7b76;
+  --auxiliar-clr: #beb0a7;
+}
+
 * {
   font-family: Arial, Helvetica, sans-serif;
   margin: 0;
@@ -16,15 +25,16 @@
 }
 
 body {
-  background-color: #1a1b26;
+  background-color: var(--primary-body);
 }
 
 h1 {
-  color: white;
+  color: var(--text-color);
+  font-weight: 800;
 }
 
 h2 {
-  color: orangered;
+  color: var(--secondary-clr);
 }
 
 h3 {
@@ -38,10 +48,14 @@ input {
   width: 90%;
   padding: 0.5rem;
   background: none;
-  color: white;
+  color: var(--text-color);
   font-size: 1.5rem;
-  border: 1px solid white;
+  border: 2px solid var(--auxiliar-clr);
   border-radius: 9px;
+}
+
+.chapterList {
+  margin-top: 0.5rem;
 }
 
 .AppContainer {
@@ -70,7 +84,7 @@ input {
   align-items: center;
   gap: 2rem;
   padding-bottom: 1rem;
-  border-bottom: 2px solid grey;
+  border-bottom: 2px solid var(--auxiliar-clr);
 }
 
 .mangaHeader img {
@@ -119,7 +133,7 @@ input {
 form {
   position: sticky;
   top: 0;
-  background-color: #1a1b26;
+  background-color: var(--primary-body);
   padding: 1rem 0;
 }
 
@@ -136,13 +150,13 @@ form {
   padding: 0.5rem;
   align-items: center;
   color: whitesmoke;
-  border: 1px solid whitesmoke;
+  border: 2px solid var(--auxiliar-clr);
   border-radius: 8px;
   gap: 1rem;
 }
 
 .MangaSearchResult a {
-  color: whitesmoke;
+  color: var(--text-color);
   text-decoration: none;
 }
 
@@ -153,7 +167,7 @@ form {
 
 .volumen {
   margin: 1rem 0;
-  color: wheat;
+  color: var(--auxiliar-clr);
 
   display: flex;
   flex-direction: column;
@@ -165,7 +179,7 @@ form {
   gap: 1rem;
   align-items: center;
   font-size: 1.2rem;
-  border: 2px solid rgba(0, 0, 0, 0.39);
+  border: 2px solid rgba(190, 176, 167, 0.5);
   border-radius: 8px;
   padding: 0.5rem;
 }
@@ -177,7 +191,7 @@ form {
 .linkToChapter {
   display: flex;
   justify-content: space-between;
-  color: white;
+  color: var(--text-color);
   text-decoration: none;
   font-size: 1.2rem;
   width: 100%;
@@ -211,4 +225,19 @@ form {
 
 .mangaPagesContainer img {
   max-width: 100%;
+  max-height: 100vh;
+}
+
+.titleAndDescription {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.currentMangaDescription {
+  color: var(--text-color);
+  font-size: 1.1rem;
+  overflow: auto;
+  padding-right: 1rem;
 }
