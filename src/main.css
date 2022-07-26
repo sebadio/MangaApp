@@ -212,6 +212,12 @@ form {
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: all 250ms ease-in-out;
+}
+
+.mangaReaderButton:hover {
+  background-color: var(--auxiliar-clr);
+  color: var(--primary-body);
 }
 
 .mangaPagesContainer {
