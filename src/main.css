@@ -12,6 +12,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 ::-webkit-scrollbar {
@@ -112,6 +113,18 @@ input {
   border-right: 0.65rem solid cyan;
   animation: loading 3s linear infinite;
   aspect-ratio: 1/1;
+}
+
+.mangaPageLoading {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  border: 0.3rem solid rgba(0, 0, 0, 0.19);
+  border-top: 0.3rem solid var(--auxiliar-clr);
+  border-right: 0.3rem solid var(--auxiliar-clr);
+  animation: loading 3s linear infinite;
+  aspect-ratio: 1/1;
+  margin: 1rem;
 }
 
 @keyframes loading {
@@ -231,7 +244,7 @@ form {
 
 .mangaPagesContainer img {
   max-width: 100%;
-  max-height: 100vh;
+  max-height: 120vh;
 }
 
 .titleAndDescription {

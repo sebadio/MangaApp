@@ -7,23 +7,21 @@ import { usePrevious } from "./hooks/usePrevious";
 
 export const App = () => {
   const [mangas, setMangas] = useState(["Tensura"]);
-  const [selectedManga, setSelectedManga] = useState(<></>);
+  const [rightSide, setRightSide] = useState(null);
 
   const onNewMangaSearch = (mangaSearch) => {
     setMangas(mangaSearch);
   };
 
-  const previousState = usePrevious(selectedManga);
+  const previousState = usePrevious(rightSide);
 
-  console.log("Next to definition " + previousState);
-
-  const exitManga = (state) => {
-    console.log("Inside exitManga function " + state);
-    setSelectedManga(state);
+  const exitManga = () => {
+    console.log("ok");
+    setRightSide(previousState);
   };
 
   const readChapter = async (e) => {
-    console.log("Inside readChapter function " + previousState);
+    const isChapter = true;
 
     const id = e.target.id;
 
@@ -31,37 +29,24 @@ export const App = () => {
 
     const { data, hash } = chapter;
 
-    setSelectedManga(
-      <>
-        <button
-          className="mangaReaderButton"
-          onClick={() => {
-            console.log("Onclick " + previousState);
-            exitManga(previousState);
-          }}
-        >
-          X
-        </button>
-        <div className="mangaPagesContainer">
-          {data.map((pagina) => (
-            <img key={pagina} src={`${baseUrl}/data/${hash}/${pagina}`} />
-          ))}
-        </div>
-      </>
-    );
+    setRightSide({
+      datos: data,
+      hash,
+      baseUrl,
+      id,
+      isChapter,
+    });
   };
 
   const populateRightSide = (e) => {
     const { cover, id, href, title, description } = e.target.attributes;
-    setSelectedManga(
-      <CurrentManga
-        readChapter={readChapter}
-        cover={cover.value}
-        id={id.value}
-        title={title.value}
-        description={description.value}
-      />
-    );
+    setRightSide({
+      cover: cover.value,
+      id: id.value,
+      title: title.value,
+      description: description.value,
+      isChapter: false,
+    });
   };
 
   return (
@@ -71,7 +56,15 @@ export const App = () => {
           <MangaSearch onNewMangaSearch={onNewMangaSearch} />
           <MangaItem key={mangas} populate={populateRightSide} manga={mangas} />
         </div>
-        <div className="rightSide">{selectedManga}</div>
+        <div className="rightSide">
+          {rightSide && (
+            <CurrentManga
+              exitManga={exitManga}
+              data={rightSide}
+              readChapter={readChapter}
+            ></CurrentManga>
+          )}
+        </div>
       </div>
     </>
   );
