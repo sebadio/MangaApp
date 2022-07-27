@@ -7,7 +7,7 @@ export const MangaItem = ({ manga, populate }) => {
   return (
     <>
       {isLoading && (
-        <div className="loading w-4 h-4 border-8 p-4 rounded-full border-t-slate-900 animate-spin"></div>
+        <div className="loading w-4 h-4 border-8 p-4 rounded-full border-t-slate-900 animate-spin m-auto"></div>
       )}
       <div className="text-gray-200 w-full flex gap-3 flex-col mt-3">
         {mangas.map((element) => (

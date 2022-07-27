@@ -13,7 +13,7 @@ export const MangaPage = ({ baseUrl, hash, pagina }) => {
         onLoad={() => {
           setIsLoaded(true);
         }}
-        className="mangaPage"
+        className="mangaPage text-red-500"
         alt={`Error`}
       />
     </>

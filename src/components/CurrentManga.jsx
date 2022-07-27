@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { getChapterList } from "../helpers/getChapterList";
 import { MangaPage } from "./MangaPage";
+import { Tag } from "./Tag";
 import { Volume } from "./Volume";
 
 export const CurrentManga = ({ data, readChapter, exitManga }) => {
   if (data.isChapter) {
+    console.log(data);
     const { datos, hash, id, baseUrl, chapter } = data;
 
     return (
@@ -31,7 +33,7 @@ export const CurrentManga = ({ data, readChapter, exitManga }) => {
       </>
     );
   } else {
-    const { cover, title, description, id } = data;
+    const { cover, title, description, id, tags } = data;
 
     const [volumes, setVolumes] = useState([]);
 
@@ -54,6 +56,14 @@ export const CurrentManga = ({ data, readChapter, exitManga }) => {
           <div className="titleAndDescription flex flex-col justify-evenly p-5">
             <h1 className="text-slate-200 text-3xl font-extrabold">{title}</h1>
             <p className="text-slate-300 overflow-auto">{description}</p>
+            <div className="tags flex flex-wrap gap-2">
+              {tags.map((tag) => (
+                <Tag
+                  key={tag.attributes.name.en}
+                  tag={tag.attributes.name.en}
+                />
+              ))}
+            </div>
           </div>
         </div>
 
