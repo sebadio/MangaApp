@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+::-webkit-scrollbar {
+  background-color: transparent;
+  width: 0.65rem;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.35);
+  border-radius: 12px;
+}
+
+.mangaPage {
+  max-width: 100%;
+  max-height: 120vh;
+}

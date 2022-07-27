@@ -51,12 +51,12 @@ export const App = () => {
 
   return (
     <>
-      <div className="AppContainer">
-        <div className="leftSide">
+      <div className="AppContainer flex bg-zinc-900 p-4 h-screen">
+        <div className="leftSide basis-1/4 overflow-auto relative">
           <MangaSearch onNewMangaSearch={onNewMangaSearch} />
           <MangaItem key={mangas} populate={populateRightSide} manga={mangas} />
         </div>
-        <div className="rightSide">
+        <div className="rightSide basis-3/4 overflow-hidden h-full p-3">
           {rightSide && (
             <CurrentManga
               exitManga={exitManga}

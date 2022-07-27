@@ -21,12 +21,13 @@ export const MangaSearch = ({ onNewMangaSearch }) => {
 
   return (
     <>
-      <form onSubmit={onSubmit}>
+      <form onSubmit={onSubmit} className="sticky top-0 bg-zinc-900 pb-2">
         <input
           type="text"
           placeholder="Manga name"
           value={inputValue}
           onChange={onInputChange}
+          className="bg-transparent text-slate-200 p-4 border-solid border-2 border-stone-500 rounded-xl w-full outline-none sticky top-0"
         />
       </form>
     </>
