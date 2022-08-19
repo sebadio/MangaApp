@@ -8,7 +8,7 @@ import { ReadChapter } from "./components/ReadChapter";
 import "./index.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <BrowserRouter basename="https://sebadio.github.io/MangaApp/">
+  <BrowserRouter>
     <Routes>
       <Route path="/" element={<App />} />
       <Route path="/mangaSearch/*" element={<Search />} />
