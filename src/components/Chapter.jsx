@@ -14,17 +14,18 @@ export const Chapter = ({ id, title }) => {
   }, []);
 
   return (
-    <div className="chapter flex gap-2 p-2 border-2 rounded-md border-zinc-300 border-opacity-20">
-      <p className="text-slate-200 font-semibold text-xl">Chapter: </p>
+    <div className="w-full flex items-center p-2 border-2 rounded-md border-zinc-300 border-opacity-20">
       <Link
         to={`/manga/read/${title}${id}`}
         state={id}
-        className="linkToChapter text-zinc-400 w-full flex justify-between items-center"
+        className="text-zinc-400 w-full flex gap-1 justify-start items-center"
       >
-        <span id={id}>
-          {chapter.chapter}: {chapter.title}{" "}
-        </span>
-        <sup id={id}>{chapter.pages} pages</sup>
+        <p className="text-slate-200 font-semibold lg:text-xl">Chapter: </p>
+
+        <div className="flex w-full justify-between items-center">
+          <span className="flex-3 overflow-hidden">{`${chapter.chapter}: ${chapter.title}`}</span>
+          <sup className="flex-2 text-xs lg:text-base whitespace-nowrap">{`${chapter.pages} pages`}</sup>
+        </div>
       </Link>
     </div>
   );

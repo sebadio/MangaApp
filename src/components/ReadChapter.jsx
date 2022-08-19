@@ -28,7 +28,7 @@ export const ReadChapter = () => {
         onClick={() => {
           navigate(-1);
         }}
-        className="text-white font-bold bg-black bg-opacity-50 p-2 rounded-full fixed top-4 left-4 aspect-square w-8 h-8 text-lg flex justify-center items-center"
+        className="text-white font-bold bg-black bg-opacity-50 p-2 rounded-full fixed top-4 left-4 aspect-square h-10 w-10 text-lg flex justify-center items-center font-mono"
       >
         X
       </button>

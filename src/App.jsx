@@ -16,7 +16,9 @@ export const App = () => {
   };
 
   return (
-    <div className="flex justify-center items-center bg-zinc-900 p-4 h-screen overflow-hidden">
+    <div className="flex flex-col justify-evenly items-center bg-zinc-900 p-4 h-screen overflow-hidden">
+      <h1 className="text-white font-bold text-6xl">Manga App</h1>
+
       <form
         className="w-1/2"
         onSubmit={(e) => {
@@ -25,10 +27,11 @@ export const App = () => {
       >
         <input
           value={currentMangaSearch}
-          className="p-4 text-white bg-transparent border-2 w-full border-gray-500 focus:border-gray-50 rounded-xl outline-none font-semibold text-xl"
+          className="p-4 text-white bg-transparent border-2 w-full border-gray-500 focus:border-gray-50 rounded-xl outline-none font-semibold text-xl placeholder:opacity-30"
           type="text"
           minLength={1}
           onChange={onInputChange}
+          placeholder="Search manga here"
         />
       </form>
     </div>

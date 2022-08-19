@@ -28,24 +28,24 @@ export const Manga = () => {
   }, []);
 
   return (
-    <div className="flex items-center h-screen flex-col gap-2 bg-zinc-900 p-4 overflow-hidden">
-      <div className="flex justify-center items-center gap-6">
+    <div className="flex items-center h-screen flex-col gap-2 bg-zinc-900 lg:p-4 p-1 overflow-auto">
+      <div className="flex flex-wrap lg:flex-nowrap lg:h-2/5 justify-center items-center gap-6">
         <img
-          className="w-1/5 rounded-md"
+          className="lg:h-full lg:w-auto h-auto max-w-full rounded-md"
           src={coverImage && coverImage}
           alt={attributes && `${attributes.title.en} cover`}
         />
 
-        <div className="flex flex-col h-full justify-evenly">
+        <div className="flex flex-col lg:h-full p-2 gap-2 lg:p-0 justify-evenly">
           <div>
-            <h1 className="text-white font-bold text-4xl">
+            <h1 className="text-white font-bold text-4xl max-w-full">
               {attributes && attributes.title.en}
             </h1>
-            <p className="text-white">
+            <p className="text-white max-w-full overflow-auto">
               {attributes && attributes.description.en}
             </p>
           </div>
-          <div className="flex gap-1">
+          <div className="flex gap-1 flex-wrap">
             {attributes &&
               attributes.tags.map((tag) => (
                 <Tag
@@ -59,7 +59,7 @@ export const Manga = () => {
 
       <hr className="w-full" />
 
-      <div>
+      <>
         {chapterList &&
           chapterList.map((volume) => (
             <Volume
@@ -68,7 +68,7 @@ export const Manga = () => {
               volumen={volume}
             />
           ))}
-      </div>
+      </>
     </div>
   );
 };

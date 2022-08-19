@@ -4,8 +4,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Search } from "./components/Search";
 import { Manga } from "./components/Manga";
 import { App } from "./App";
-import "./index.css";
 import { ReadChapter } from "./components/ReadChapter";
+import "./index.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <BrowserRouter>
