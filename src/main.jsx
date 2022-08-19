@@ -10,10 +10,10 @@ import "./index.css";
 ReactDOM.createRoot(document.getElementById("root")).render(
   <BrowserRouter>
     <Routes>
-      <Route path="/" element={<App />} />
-      <Route path="/mangaSearch/*" element={<Search />} />
-      <Route path="/manga/*" element={<Manga />} />
-      <Route path="/manga/read/*" element={<ReadChapter />} />
+      <Route path="/mangapage" element={<App />} />
+      <Route path="/mangapage/mangaSearch/*" element={<Search />} />
+      <Route path="/mangapage/manga/*" element={<Manga />} />
+      <Route path="/mangapage/manga/read/*" element={<ReadChapter />} />
     </Routes>
   </BrowserRouter>
 );
