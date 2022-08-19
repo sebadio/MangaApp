@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { useFetchSearch } from "../helpers/getSearch";
 import { MangaSearchResult } from "./MangaSearchResult";
+import { Input } from "./Input";
 
 export const Search = () => {
   const { state } = useLocation();
@@ -17,14 +18,18 @@ export const Search = () => {
 
   useEffect(() => {
     getData();
-  }, []);
+  }, [state]);
 
   return (
-    <div className="flex justify-center items-center flex-col gap-4 bg-zinc-900 p-4 h-screen overflow-hidden">
-      {mangaData &&
-        mangaData.map((manga) => (
-          <MangaSearchResult attr={manga} key={manga.id} />
-        ))}
+    <div className="flex items-center flex-col gap-4 bg-zinc-900 p-4 h-screen overflow-auto">
+      <Input />
+
+      <div className="flex flex-wrap gap-2 w-1/2">
+        {mangaData &&
+          mangaData.map((manga) => (
+            <MangaSearchResult attr={manga} key={manga.id} />
+          ))}
+      </div>
     </div>
   );
 };

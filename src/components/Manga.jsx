@@ -37,14 +37,12 @@ export const Manga = () => {
         />
 
         <div className="flex flex-col lg:h-full p-2 gap-2 lg:p-0 justify-evenly">
-          <div>
-            <h1 className="text-white font-bold text-4xl max-w-full">
-              {attributes && attributes.title.en}
-            </h1>
-            <p className="text-white max-w-full overflow-auto">
-              {attributes && attributes.description.en}
-            </p>
-          </div>
+          <h1 className="text-white font-bold text-4xl max-w-full">
+            {attributes && attributes.title.en}
+          </h1>
+          <p className="text-white max-w-full lg:h-1/2 overflow-auto">
+            {attributes && attributes.description.en}
+          </p>
           <div className="flex gap-1 flex-wrap">
             {attributes &&
               attributes.tags.map((tag) => (

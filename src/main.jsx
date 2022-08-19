@@ -11,7 +11,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<App />} />
-      <Route path="/mangaSearch" element={<Search />} />
+      <Route path="/mangaSearch/*" element={<Search />} />
       <Route path="/manga/*" element={<Manga />} />
       <Route path="/manga/read/*" element={<ReadChapter />} />
     </Routes>

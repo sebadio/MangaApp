@@ -6,22 +6,26 @@ export const MangaSearchResult = ({ attr, populate }) => {
   const [isLoaded, setIsLoaded] = useState(false);
 
   return (
-    <div className="flex h-48 w-2/4 items-center gap-4  border-2 border-gray-400 p-1 rounded-md">
+    <>
       {!isLoaded && (
         <div className="loading w-4 h-4 border-8 p-4 rounded-full border-t-slate-900 animate-spin"></div>
       )}
-      <img
-        onLoad={() => {
-          setIsLoaded(true);
-        }}
-        src={cover}
-        alt={`${title} cover`}
-        className="h-full w-auto rounded-md"
-      />
 
-      <Link to={`/manga/${title}`} className="text-white" state={id}>
-        {title}
+      <Link
+        to={`/manga/${title}`}
+        className="flex flex-col text-white h-auto w-32"
+        state={id}
+      >
+        <img
+          onLoad={() => {
+            setIsLoaded(true);
+          }}
+          src={cover}
+          alt={`${title} cover`}
+          className="h-auto w-min border-2 border-gray-400 p-1 rounded-md"
+        />
+        <label className="break-words">{title}</label>
       </Link>
-    </div>
+    </>
   );
 };
