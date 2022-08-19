@@ -7,5 +7,5 @@ export const getCoverImage = async (mangaId) => {
 
   const cover = data[0].attributes.fileName;
 
-  return cover;
+  return `https://mangadex.org/covers/${mangaId}/${cover}`;
 };

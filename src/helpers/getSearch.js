@@ -19,7 +19,7 @@ export const useFetchSearch = async (manga) => {
       id: mangaId,
       title: mangaTitle,
       attributes: mangaAttributes,
-      cover: `https://mangadex.org/covers/${mangaId}/${mangaCover}`,
+      cover: mangaCover,
     });
   }
 
