@@ -4,9 +4,13 @@ export const useFetchSearch = async (manga) => {
   const url = `https://api.mangadex.org/manga?title=${manga}`;
   const respuesta = await fetch(url, {
     method: "GET",
-    mode: "no-cors",
-    headers: { "content-type": "application/json" },
+    headers: {
+      "content-type": "application/json",
+      "Access-Control-Allow-Origin": "*",
+    },
   });
+
+  console.log(await respuesta);
 
   const { data } = await respuesta.json();
 
