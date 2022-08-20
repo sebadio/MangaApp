@@ -5,6 +5,9 @@ export const useFetchSearch = async (manga) => {
   const respuesta = await fetch(url, {
     method: "GET",
     mode: "cors",
+    headers: {
+      "X-Request-ID": "1253c8ca-80b5-465d-945f-3904a63e644d",
+    },
   });
 
   console.log(await respuesta);
