@@ -1,7 +1,7 @@
 import { getCoverImage } from "./getCoverImage";
 
 export const useFetchSearch = async (manga) => {
-  const url = `https://api.mangadex.org/manga?title=${manga}`;
+  const url = `/manga?title=${manga}`;
   const respuesta = await fetch(url, {
     method: "GET",
     headers: {
