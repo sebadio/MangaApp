@@ -2,7 +2,11 @@ import { getCoverImage } from "./getCoverImage";
 
 export const useFetchSearch = async (manga) => {
   const url = `https://api.mangadex.org/manga?title=${manga}`;
-  const respuesta = await fetch(url);
+  const respuesta = await fetch(url, {
+    method: "GET",
+    mode: "no-cors",
+    headers: { "content-type": "application/json" },
+  });
 
   const { data } = await respuesta.json();
 

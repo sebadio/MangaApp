@@ -3,6 +3,7 @@ export const getMangaById = async (id) => {
 
   const respuesta = await fetch(url, {
     method: "GET",
+    mode: "no-cors",
     headers: { "content-type": "application/json" },
   });
 
