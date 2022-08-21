@@ -27,10 +27,6 @@ export const Manga = () => {
     getManga();
   }, []);
 
-  useEffect(() => {
-    console.log(mangaData);
-  }, [mangaData]);
-
   return (
     <div className="flex items-center h-screen flex-col gap-2 lg:p-4 p-1 overflow-auto">
       <div className="flex flex-wrap lg:flex-nowrap lg:h-2/5 justify-center items-center gap-6">
