@@ -6,9 +6,13 @@ export const App = () => {
   let navigate = useNavigate();
 
   return (
-    <div className="flex flex-col justify-evenly items-center bg-zinc-900 p-4 h-screen overflow-hidden">
-      <h1 className="text-white font-bold text-6xl">Manga App</h1>
-      <Input />
-    </div>
+    <>
+      <div className="flex h-full justify-center items-center">
+        <h2 className="text-white">
+          Tu Libreria aparecera aqui! Empieza buscando mangas desde el buscador
+          de arriba a la derecha
+        </h2>
+      </div>
+    </>
   );
 };

@@ -1,9 +1,5 @@
 export const getChapter = async (id) => {
-  const respuesta = await fetch(`https://api.mangadex.org/chapter/${id}`, {
-    method: "GET",
-    mode: "no-cors",
-    headers: { "content-type": "application/json" },
-  });
+  const respuesta = await fetch(`https://api.mangadex.org/chapter/${id}`);
 
   const { data } = await respuesta.json();
 

@@ -11,6 +11,7 @@ export const Input = () => {
 
   const navigateMangaSearch = (e) => {
     e.preventDefault();
+    setCurrentMangaSearch("");
     navigate(`/mangaSearch/${currentMangaSearch}`, {
       state: { manga: currentMangaSearch },
     });
@@ -20,7 +21,7 @@ export const Input = () => {
     <form className="w-1/2" onSubmit={navigateMangaSearch}>
       <input
         value={currentMangaSearch}
-        className="p-4 text-white bg-transparent border-2 w-full border-gray-500 focus:border-gray-50 rounded-xl outline-none font-semibold text-xl placeholder:opacity-30"
+        className="p-2 text-white bg-transparent border-2 w-1/2 float-right border-gray-500 focus:border-gray-50 rounded-xl outline-none font-semibold text-xl placeholder:opacity-30"
         type="text"
         minLength={1}
         onChange={onInputChange}

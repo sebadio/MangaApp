@@ -23,7 +23,11 @@ export const Chapter = ({ id, title }) => {
         <p className="text-slate-200 font-semibold lg:text-xl">Chapter: </p>
 
         <div className="flex w-full justify-between items-center">
-          <span className="flex-3 overflow-hidden">{`${chapter.chapter}: ${chapter.title}`}</span>
+          <span className="flex-3 overflow-hidden">{`${chapter.chapter}: ${
+            chapter.title == null || chapter.title == ""
+              ? "No title"
+              : chapter.title
+          }`}</span>
           <sup className="flex-2 text-xs lg:text-base whitespace-nowrap">{`${chapter.pages} pages`}</sup>
         </div>
       </Link>
