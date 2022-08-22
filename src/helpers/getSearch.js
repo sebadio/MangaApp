@@ -4,8 +4,6 @@ export const getSearch = async (manga) => {
   const url = `https://api.mangadex.org/manga?title=${manga}`;
   const respuesta = await fetch(url);
 
-  console.log(await respuesta);
-
   const { data } = await respuesta.json();
 
   const mangasList = [];

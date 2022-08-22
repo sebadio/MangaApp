@@ -5,6 +5,7 @@ import { useLocation } from "react-router-dom";
 import { getChapterList } from "../helpers/getChapterList";
 import { getCoverImage } from "../helpers/getCoverImage";
 import { getMangaById } from "../helpers/getMangaById";
+import { AddLibrary } from "./AddLibrary";
 import { Tag } from "./Tag";
 import { Volume } from "./Volume";
 
@@ -61,6 +62,11 @@ export const Manga = () => {
                 />
               ))}
           </div>
+          <AddLibrary
+            cover={coverImage && coverImage}
+            title={attributes && attributes.title.en}
+            id={data && data.id}
+          />
         </div>
       </div>
 
