@@ -12,11 +12,12 @@ export const AddLibrary = ({ cover, title, id }) => {
 
   const addToLibrary = () => {
     if (isInLibrary) {
-      const library = localStorage.getItem("library");
+      const library = JSON.parse(localStorage.getItem("library"));
 
-      console.log(newLibrary);
+      const newLibrary = library.filter((element) => element.id !== id);
 
-      localStorage.setItem("library", library);
+      localStorage.setItem("library", JSON.stringify(newLibrary));
+      setIsInLibrary(false);
     } else {
       if (localStorage.getItem("library")) {
         const library = JSON.parse(localStorage.getItem("library"));
@@ -26,8 +27,8 @@ export const AddLibrary = ({ cover, title, id }) => {
       } else {
         localStorage.setItem("library", JSON.stringify([{ cover, title, id }]));
       }
+      setIsInLibrary(true);
     }
-    setIsInLibrary(!isInLibrary);
   };
 
   return (
