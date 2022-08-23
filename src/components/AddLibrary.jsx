@@ -3,29 +3,27 @@ import { useEffect } from "react";
 import { useState } from "react";
 
 export const AddLibrary = ({ cover, title, id }) => {
-  const checkLibrary = () => {
-    const library = JSON.parse(localStorage.getItem("library"));
-
+  const checkLibrary = async () => {
     if (localStorage.getItem("library")) {
+      const library = JSON.parse(localStorage.getItem("library"));
+
       if (library.filter((element) => element.id === id).length > 0) {
-        setIsInLibrary(true);
+        return true;
       } else {
-        setIsInLibrary(false);
+        return false;
       }
     } else {
-      setIsInLibrary(false);
+      return false;
     }
   };
 
   const [isInLibrary, setIsInLibrary] = useState(false);
 
   useEffect(() => {
-    checkLibrary();
-  }, []);
+    setIsInLibrary(checkLibrary());
+  }, [id]);
 
   const addToLibrary = () => {
-    console.log(isInLibrary);
-
     if (isInLibrary) {
       const library = JSON.parse(localStorage.getItem("library"));
 
@@ -36,8 +34,6 @@ export const AddLibrary = ({ cover, title, id }) => {
     } else {
       if (localStorage.getItem("library")) {
         const library = JSON.parse(localStorage.getItem("library"));
-
-        console.log(library.filter((element) => element.id === id).length);
 
         library.push({ cover, title, id });
         localStorage.setItem("library", JSON.stringify(library));
