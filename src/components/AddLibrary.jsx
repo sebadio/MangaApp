@@ -17,10 +17,14 @@ export const AddLibrary = ({ cover, title, id }) => {
     }
   };
 
+  const changeLibraryValue = async () => {
+    setIsInLibrary(await checkLibrary());
+  };
+
   const [isInLibrary, setIsInLibrary] = useState(false);
 
   useEffect(() => {
-    setIsInLibrary(checkLibrary());
+    changeLibraryValue();
   }, [id]);
 
   const addToLibrary = () => {
@@ -48,10 +52,12 @@ export const AddLibrary = ({ cover, title, id }) => {
     <button
       onClick={addToLibrary}
       className={`p-4 lg:w-1/3 rounded-md font-semibold ${
-        isInLibrary ? "bg-red-400" : "bg-green-200"
-      } ${isInLibrary ? "hover:bg-red-500" : "hover:bg-green-500"}`}
+        isInLibrary
+          ? "bg-red-400 hover:bg-red-500"
+          : "bg-green-200 hover:bg-green-500"
+      }`}
     >
-      {isInLibrary ? "Already in Library" : "Add to your library!"}
+      {isInLibrary ? "Remove from Library" : "Add to your library!"}
     </button>
   );
 };

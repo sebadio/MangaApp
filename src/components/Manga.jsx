@@ -30,18 +30,18 @@ export const Manga = () => {
 
   return (
     <div className="flex items-center h-screen flex-col gap-2 lg:p-4 p-1 overflow-auto">
-      <div className="flex flex-wrap lg:flex-nowrap lg:h-2/5 justify-center items-center gap-6">
+      <div className="flex flex-wrap lg:flex-nowrap lg:h-2/5 lg:w-auto w-full justify-center items-center gap-6">
         <img
           className="lg:h-full lg:w-auto h-auto max-w-full rounded-md"
           src={coverImage && coverImage}
           alt={attributes && `${attributes.title.en} cover`}
         />
 
-        <div className="flex flex-col lg:h-full p-2 gap-2 lg:p-0 justify-evenly">
+        <div className="flex flex-col lg:h-full w-full p-2 gap-2 lg:p-0 justify-evenly">
           <h1 className="text-white font-bold text-4xl max-w-full">
             {attributes && attributes.title.en}
           </h1>
-          <p className="text-white max-w-full lg:h-1/4 overflow-auto">
+          <p className="text-white max-w-full break-words lg:h-1/4 overflow-auto">
             {attributes && attributes.description.en}
           </p>
           <span className="text-white capitalize flex gap-2 items-center">
