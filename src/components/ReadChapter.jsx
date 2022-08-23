@@ -20,10 +20,15 @@ export const ReadChapter = () => {
 
   useEffect(() => {
     getPages();
+    console.log(window.innerWidth);
   }, []);
 
   return (
-    <div className="flex flex-col gap-1 items-center bg-zinc-900 p-4 h-screen overflow-auto relative">
+    <div
+      className={`flex flex-col gap-1 items-center bg-zinc-900 lg:p-4 h-screen overflow-auto relative ${
+        window.innerWidth < 600 && "noScrollbar"
+      }`}
+    >
       <div className="sticky top-1 w-full">
         <button
           onClick={() => {
