@@ -1,16 +1,31 @@
 import React from "react";
+import { useEffect } from "react";
 import { useState } from "react";
 
 export const AddLibrary = ({ cover, title, id }) => {
-  /*   console.log(localStorage.getItem("library").includes(id));
-  console.log(id); */
+  const checkLibrary = () => {
+    const library = JSON.parse(localStorage.getItem("library"));
 
-  const [isInLibrary, setIsInLibrary] = useState(
-    localStorage.getItem("library") &&
-      !localStorage.getItem("library").includes(id)
-  );
+    if (localStorage.getItem("library")) {
+      if (library.filter((element) => element.id === id).length > 0) {
+        setIsInLibrary(true);
+      } else {
+        setIsInLibrary(false);
+      }
+    } else {
+      setIsInLibrary(false);
+    }
+  };
+
+  const [isInLibrary, setIsInLibrary] = useState(false);
+
+  useEffect(() => {
+    checkLibrary();
+  }, []);
 
   const addToLibrary = () => {
+    console.log(isInLibrary);
+
     if (isInLibrary) {
       const library = JSON.parse(localStorage.getItem("library"));
 
@@ -21,6 +36,8 @@ export const AddLibrary = ({ cover, title, id }) => {
     } else {
       if (localStorage.getItem("library")) {
         const library = JSON.parse(localStorage.getItem("library"));
+
+        console.log(library.filter((element) => element.id === id).length);
 
         library.push({ cover, title, id });
         localStorage.setItem("library", JSON.stringify(library));
