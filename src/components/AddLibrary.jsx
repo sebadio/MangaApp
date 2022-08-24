@@ -39,10 +39,13 @@ export const AddLibrary = ({ cover, title, id }) => {
       if (localStorage.getItem("library")) {
         const library = JSON.parse(localStorage.getItem("library"));
 
-        library.push({ cover, title, id });
+        library.push({ cover: `${cover}.512.jpg`, title, id });
         localStorage.setItem("library", JSON.stringify(library));
       } else {
-        localStorage.setItem("library", JSON.stringify([{ cover, title, id }]));
+        localStorage.setItem(
+          "library",
+          JSON.stringify([{ cover: `${cover}.512.jpg`, title, id }])
+        );
       }
       setIsInLibrary(true);
     }
