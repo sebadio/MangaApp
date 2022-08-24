@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import { getChapterList } from "../helpers/getChapterList";
-import { getCoverImage } from "../helpers/getCoverImage";
+// import { getCoverImage } from "../helpers/getCoverImage";
 import { getMangaById } from "../helpers/getMangaById";
 import { AddLibrary } from "./AddLibrary";
 import { Tag } from "./Tag";
@@ -17,11 +17,11 @@ export const Manga = () => {
   const [isLoaded, setIsLoaded] = useState(false);
 
   const { data } = !!mangaData && mangaData;
-  const { attributes } = !!data && data;
+  const { attributes, relationships } = !!data && data;
 
   const getManga = async () => {
     setMangaData(await getMangaById(state));
-    setCoverImage(await getCoverImage(state));
+    // setCoverImage(await getCoverImage(state));
     setChapterList(Object.values(await getChapterList(state)).reverse());
   };
 
@@ -30,10 +30,17 @@ export const Manga = () => {
   }, []);
 
   useEffect(() => {
-    if (mangaData && coverImage && attributes) {
+    relationships &&
+      setCoverImage(
+        `https://mangadex.org/covers/${data.id}/${relationships[2].attributes.fileName}`
+      );
+  }, [relationships]);
+
+  useEffect(() => {
+    if (mangaData && attributes) {
       setIsLoaded(true);
     }
-  }, [mangaData, coverImage, attributes]);
+  }, [mangaData, attributes]);
 
   return (
     <div

@@ -1,5 +1,5 @@
 export const getMangaById = async (id) => {
-  const url = `https://api.mangadex.org/manga/${id}`;
+  const url = `https://api.mangadex.org/manga/${id}?includes[]=cover_art`;
 
   const respuesta = await fetch(url);
 
