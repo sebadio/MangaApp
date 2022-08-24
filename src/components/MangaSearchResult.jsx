@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-export const MangaSearchResult = ({ attr, populate }) => {
+export const MangaSearchResult = ({ attr }) => {
   const { cover, title, id, attributes } = attr;
   const [isLoaded, setIsLoaded] = useState(false);
 
@@ -22,7 +22,7 @@ export const MangaSearchResult = ({ attr, populate }) => {
           onLoad={() => {
             setIsLoaded(true);
           }}
-          src={cover}
+          src={`${cover}.512.jpg`}
           alt={`${title} cover`}
           className="h-auto w-min border-2 border-gray-400 p-1 rounded-md"
         />
