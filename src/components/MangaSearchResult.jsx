@@ -13,7 +13,9 @@ export const MangaSearchResult = ({ attr, populate }) => {
 
       <Link
         to={`/manga/${title}`}
-        className="flex flex-col text-white h-auto w-32"
+        className={`flex flex-col text-white h-auto w-32 ${
+          !isLoaded && "hidden"
+        }`}
         state={id}
       >
         <img

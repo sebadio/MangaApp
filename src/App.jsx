@@ -26,7 +26,7 @@ export const App = () => {
               >
                 <img
                   loading="lazy"
-                  className="w-auto h-52  max-h-64 rounded-sm ease-in-out shadow-white transition-all hover:-translate-y-1"
+                  className="w-auto h-52  max-h-64 rounded-sm ease-in-out shadow-white transition-all hover:-translate-y-1 hover:opacity-70"
                   src={manga.cover}
                   alt={`${manga.title} cover`}
                 />
