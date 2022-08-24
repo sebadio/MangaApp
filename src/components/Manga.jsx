@@ -11,17 +11,20 @@ import { Volume } from "./Volume";
 
 export const Manga = () => {
   const { state } = useLocation();
+
   const [mangaData, setMangaData] = useState();
-  const [coverImage, setCoverImage] = useState();
   const [chapterList, setChapterList] = useState();
   const [isLoaded, setIsLoaded] = useState(false);
 
   const { data } = !!mangaData && mangaData;
   const { attributes, relationships } = !!data && data;
 
+  const coverImage =
+    !!relationships &&
+    `https://mangadex.org/covers/${data.id}/${relationships[2].attributes.fileName}`;
+
   const getManga = async () => {
     setMangaData(await getMangaById(state));
-    // setCoverImage(await getCoverImage(state));
     setChapterList(Object.values(await getChapterList(state)).reverse());
   };
 
@@ -30,17 +33,10 @@ export const Manga = () => {
   }, []);
 
   useEffect(() => {
-    relationships &&
-      setCoverImage(
-        `https://mangadex.org/covers/${data.id}/${relationships[2].attributes.fileName}`
-      );
-  }, [relationships]);
-
-  useEffect(() => {
-    if (mangaData && attributes) {
+    if (mangaData && attributes && chapterList) {
       setIsLoaded(true);
     }
-  }, [mangaData, attributes]);
+  }, [mangaData, attributes, chapterList]);
 
   return (
     <div
