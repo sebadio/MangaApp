@@ -3,7 +3,6 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import { getChapterList } from "../helpers/getChapterList";
-// import { getCoverImage } from "../helpers/getCoverImage";
 import { getMangaById } from "../helpers/getMangaById";
 import { AddLibrary } from "./AddLibrary";
 import { Tag } from "./Tag";
