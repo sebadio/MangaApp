@@ -13,6 +13,11 @@ All credit for the translation goes to the grop that made It.
 
 Since the MangaDex API doesn't allow fetching data from any other url other than MangaDex itself and LocalHost, the only way to try this App is hosting it yourself.
 
+### What you will need:
+  - Node
+  - Git (Optional)
+  - A terminal (be it Git, cmd, Powershell, or any other that you may prefer)
+
 ### Step 1: Cloning the repository
 
 Firstly you'll have to download the repository, you can download it as a .zip with GitHub clicking in the green button labeled "Code" and then in the "Download ZIP" option.
