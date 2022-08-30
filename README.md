@@ -9,6 +9,9 @@ This is the repository of my Manga App, which was made to practice:
 This app uses the [MangaDex API](https://api.mangadex.org/swagger.html) to fetch the Mangas, it's covers, chapters and pages.
 All credit for the translation goes to the grop that made It.
 
+___
+___
+
 ## How to set up
 
 Since the MangaDex API doesn't allow fetching data from any other url other than MangaDex itself and LocalHost, the only way to try this App is hosting it yourself.
@@ -17,6 +20,8 @@ Since the MangaDex API doesn't allow fetching data from any other url other than
   - Node
   - Git (Optional)
   - A terminal (be it Git, cmd, Powershell, or any other that you may prefer)
+
+___
 
 ### Step 1: Cloning the repository
 
@@ -27,6 +32,7 @@ If you wish you can also do it with git.
 ```
 git clone https://github.com/sebadio/MangaApp.git
 ```
+___
 
 ### Step 2: Opening the project
 
@@ -38,6 +44,7 @@ If you're doing the Git method you can just cd into the folder:
 ```
 cd MangaApp
 ```
+___
 
 ### Step 3: Installing the dependencies
 
@@ -48,6 +55,7 @@ npm install
 ```
 
 (Given you'll need Node for this step to work)
+___
 
 ### Step 4: Starting the local server
 
