@@ -10,7 +10,6 @@ This app uses the [MangaDex API](https://api.mangadex.org/swagger.html) to fetch
 All credit for the translation goes to the grop that made It.
 
 ___
-___
 
 ## How to set up
 
@@ -32,7 +31,7 @@ If you wish you can also do it with git.
 ```
 git clone https://github.com/sebadio/MangaApp.git
 ```
-___
+
 
 ### Step 2: Opening the project
 
@@ -44,7 +43,7 @@ If you're doing the Git method you can just cd into the folder:
 ```
 cd MangaApp
 ```
-___
+
 
 ### Step 3: Installing the dependencies
 
@@ -55,7 +54,7 @@ npm install
 ```
 
 (Given you'll need Node for this step to work)
-___
+
 
 ### Step 4: Starting the local server
 
