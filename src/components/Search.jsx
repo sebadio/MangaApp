@@ -1,25 +1,9 @@
 import React from "react";
-import { useState } from "react";
-import { useEffect } from "react";
-import { useLocation } from "react-router-dom";
-import { getSearch } from "../helpers/getSearch";
+import { useSearch } from "../hooks/useSearch";
 import { MangaSearchResult } from "./MangaSearchResult";
 
 export const Search = () => {
-  const { state } = useLocation();
-  const { manga } = state;
-
-  const [mangaData, setMangaData] = useState();
-  const [isLoading, setIsLoading] = useState(true);
-
-  const getData = async () => {
-    setMangaData(await getSearch(manga));
-    setIsLoading(!isLoading);
-  };
-
-  useEffect(() => {
-    getData();
-  }, [state]);
+  const { isLoading, mangaData } = useSearch();
 
   return (
     <div

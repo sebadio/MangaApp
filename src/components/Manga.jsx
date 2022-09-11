@@ -1,41 +1,11 @@
 import React from "react";
-import { useEffect } from "react";
-import { useState } from "react";
-import { useLocation } from "react-router-dom";
-import { getChapterList } from "../helpers/getChapterList";
-import { getMangaById } from "../helpers/getMangaById";
+import { useGetManga } from "../hooks/useGetManga";
 import { AddLibrary } from "./AddLibrary";
 import { Tag } from "./Tag";
 import { Volume } from "./Volume";
 
 export const Manga = () => {
-  const { state } = useLocation();
-
-  const [mangaData, setMangaData] = useState();
-  const [chapterList, setChapterList] = useState();
-  const [isLoaded, setIsLoaded] = useState(false);
-
-  const { data } = !!mangaData && mangaData;
-  const { attributes, relationships } = !!data && data;
-
-  const coverImage =
-    !!relationships &&
-    `https://mangadex.org/covers/${data.id}/${relationships[2].attributes.fileName}`;
-
-  const getManga = async () => {
-    setMangaData(await getMangaById(state));
-    setChapterList(Object.values(await getChapterList(state)).reverse());
-  };
-
-  useEffect(() => {
-    getManga();
-  }, []);
-
-  useEffect(() => {
-    if (mangaData && attributes && chapterList) {
-      setIsLoaded(true);
-    }
-  }, [mangaData, attributes, chapterList]);
+  const { isLoaded, coverImage, attributes, data, chapterList } = useGetManga();
 
   return (
     <div

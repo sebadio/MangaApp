@@ -1,27 +1,14 @@
 import React from "react";
-import { useEffect } from "react";
-import { useState } from "react";
+
 import { useLocation, useNavigate } from "react-router-dom";
-import { getChapterPages } from "../helpers/getChapterPages";
+import { useGetPages } from "../hooks/useGetPages";
+
 import { MangaPage } from "./MangaPage";
 
 export const ReadChapter = () => {
   const navigate = useNavigate();
-  const { state } = useLocation();
 
-  const [pages, setPages] = useState();
-
-  const getPages = async () => {
-    setPages(await getChapterPages(state));
-  };
-
-  const { baseUrl, chapter } = !!pages && pages;
-  const { data, hash } = !!chapter && chapter;
-
-  useEffect(() => {
-    getPages();
-    console.log(window.innerWidth);
-  }, []);
+  const { baseUrl, data, hash } = useGetPages();
 
   return (
     <div
